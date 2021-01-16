@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "averta";
+    src: url('../font/Averta\ Bold.otf');
+}
+
+.esp {
+    margin-top: 40px;
+}
+.list-group-item h5 {
+    color: #008dbc;
+}
+.blue_saadbouh {
+    text-align: justify;
+    color: #008dbc;
+}
+.style_1{
+    margin-top : 12px;
+}
+.list-group-item.active {
+    z-index: 2;
+    color:
+        #fff;
+    background-color:
+        #008dbc;
+    border-color:
+        #008dbc;
+}
+.gras_1{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.mrg{
+    margin-top : 20px;
+}
+
+.averta{font-family: averta;}
+
