@@ -1,8 +1,8 @@
 <?php
-namespace App;
+namespace App\Database;
 use \PDO;
 
-class Database{
+class MysqlDatabase{
 
     private $db_name;
     private $db_user;
@@ -29,7 +29,7 @@ class Database{
     //Connexion à la base de données avec la classe PDO
     public function getPDO(){
         if($this->pdo === null){
-            $pdo = new PDO('mysql:host=localhost;dbname='.$this->db_name.';charset=utf8',$this->db_user,$this->db_pass);
+            $pdo = new PDO('mysql:host='.$this->db_host.';dbname='.$this->db_name.';charset=utf8',$this->db_user,$this->db_pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
         }
@@ -37,9 +37,13 @@ class Database{
     }
 
     //
-    public function query($statement, $classname, $one = false){
+    public function query($statement, $classname = null, $one = false){
         $req = $this->getPDO()->query($statement);
-        $req->setFetchMode(PDO::FETCH_CLASS, $classname);
+        if($classname === null){
+            $req->setFetchMode(PDO::FETCH_OBJ);
+        }else{
+            $req->setFetchMode(PDO::FETCH_CLASS, $classname);
+        }        
         if ($one) {
             $data = $req->fetch();
         } else {
