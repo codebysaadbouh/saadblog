@@ -1,2 +1,2 @@
 # saadblog
-### Learning object-oriented PHP by creating a blog
+### Object-oriented PHP by creating a blog
